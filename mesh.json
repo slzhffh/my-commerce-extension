@@ -1,0 +1,30 @@
+{
+    "meshConfig": {
+      "sources": [
+        {
+          "name": "Commerce",
+          "handler": {
+            "graphql": {
+              "endpoint": "https://na1-sandbox.api.commerce.adobe.com/XXDjJ3T5pnSP5i9jdkXtSD/graphql"
+            }
+          }
+        },
+        {
+          "name": "Enrichment",
+          "handler": {
+            "openapi": {
+              "source": "./enrichment-openapi.json"
+            }
+          },
+          "transforms": [
+            {
+              "prefix": {
+                "value": "Enrichment_",
+                "includeRootOperations": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }

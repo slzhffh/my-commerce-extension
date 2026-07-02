@@ -1,0 +1,64 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Product Enrichment API",
+      "version": "1.0.0",
+      "description": "Custom product enrichment service via I/O Runtime"
+    },
+    "servers": [
+      {
+        "url": "https://3967933-592aquamarinestoat-stageadobeioruntime.net/api/v1/web/my-commerce-extensions"
+      }
+    ],
+    "paths": {
+      "/product-enrichment": {
+        "get": {
+          "operationId": "getProductEnrichment",
+          "summary": "Get enriched product data",
+          "parameters": [
+            {
+              "name": "sku",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "The product SKU to enrich"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Enriched product data",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "sku": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "price": {
+                        "type": "number"
+                      },
+                      "sustainabilityScore": {
+                        "type": "integer"
+                      },
+                      "estimatedDelivery": {
+                        "type": "string"
+                      },
+                      "enrichedAt": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
