@@ -1,0 +1,18 @@
+application:
+  actions: actions
+  web: web-src
+  runtimeManifest:
+    packages:
+      my-commerce-extension:
+        license: Apache-2.0
+        actions:
+          product-enrichment:
+            function: actions/product-enrichment/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            inputs:
+              LOG_LEVEL: debug
+              apiKey: $SERVICE_API_KEY
+            annotations:
+              require-adobe-auth: true
+              final: true
